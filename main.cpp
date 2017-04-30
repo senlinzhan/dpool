@@ -15,8 +15,8 @@ void task(int taskId)
         std::cout << "task-" << taskId << " begin!" << std::endl;                    
     }
 
-    // executing task for 1 second
-    std::this_thread::sleep_for(std::chrono::seconds(5));
+    // executing task for 2 second
+    std::this_thread::sleep_for(std::chrono::seconds(2));
     
     {
         std::lock_guard<std::mutex> guard(coutMtx);
@@ -24,10 +24,10 @@ void task(int taskId)
     }
 }
 
-// monitoring threads number for 20 seconds
-void monitor(const ThreadPool &pool)
+
+void monitor(const ThreadPool &pool, int seconds)
 {
-    for (int i = 1; i < 200; ++i)
+    for (int i = 1; i < seconds * 10; ++i)
     {
         {
             std::lock_guard<std::mutex> guard(coutMtx);
@@ -39,9 +39,11 @@ void monitor(const ThreadPool &pool)
 
 int main(int argc, char *argv[])
 {
-    ThreadPool pool(100);  // 100 threads
+    // max threads number is 100
+    ThreadPool pool(100); 
 
-    pool.submit(monitor, std::ref(pool));
+    // monitoring threads number for 13 seconds    
+    pool.submit(monitor, std::ref(pool), 13);
     
     // submit 100 tasks
     for (int taskId = 0; taskId < 100; ++taskId)

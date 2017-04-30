@@ -13,7 +13,6 @@
 
 namespace dpool {  
 
-
 class ThreadPool
 {
 public:
