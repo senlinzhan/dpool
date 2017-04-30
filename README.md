@@ -1,4 +1,4 @@
-![Build status](https://travis-ci.org/senlinzhan/dpool.svg?branch=master)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)] ![Build status](https://travis-ci.org/senlinzhan/dpool.svg?branch=master)
 # dpool 
 
 使用 C++11 实现的动态线程池，主要特性：
