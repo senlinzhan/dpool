@@ -1,4 +1,5 @@
-# dpool
+# dpool [![Build Status](https://https://travis-ci.org/senlinzhan/dpool.svg?branch=master)](https://travis-ci.org/senlinzhan/dpool)
+
 使用 C++11 实现的动态线程池，主要特性：
 - 使用简单，不易出错。 
 - 支持线程复用，提升性能。
