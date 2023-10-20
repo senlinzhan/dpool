@@ -13,7 +13,6 @@
         - 支持线程复用，提升性能。
         - 支持懒惰创建线程。
         - 必要时自动回收空闲的线程。 
-
 * @author senlinzhan  | fgfxf
 * @date 2017  | 2023改进
 * @note 用chartGPT辅助下增加了对c++17 20版本的支持，增加了一些get set函数
@@ -241,7 +240,7 @@ private:
                 
                     //工作线程休眠：当超时WAIT_MINUTES或者quit__或者任务非空时唤醒。
                     bool hasTimedout = !cv_.wait_for(uniqueLock,
-                                                     std::chrono::seconds(WAIT_MINUTES),
+                                                     std::chrono::minutes(WAIT_MINUTES),
                                                      [this]()
                                                      {
                                                          return quit_ || !tasks_.empty();
